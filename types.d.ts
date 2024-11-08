@@ -46,8 +46,8 @@ export type ITradeOnPulseMarketResponse =
     | ITradeOnPulseMarketResponseWithoutHistory;
 
 export interface INumberFilter {
-    minValue: null | number;
-    maxValue: null | number;
+    minValue?: null | number;
+    maxValue?: null | number;
 }
 export type NumberFilter = INumberFilter | undefined;
 
