@@ -1,20 +1,38 @@
 {
   "name": "tradeonpulseapi",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "scripts": {
     "build": "tsc",
     "prepare": "npm run build"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "author": "",
+  "author": "themod",
   "license": "ISC",
-  "description": "",
+  "description": "A library for interacting with the API of the TradeOn Pulse platform.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/themod161/tradeonpulseapi.git"
+  },
+  "bugs": {
+    "url": "https://github.com/themod161/tradeonpulseapi/issues"
+  },
+  "homepage": "https://github.com/themod161/tradeonpulseapi#readme",
+  "keywords": [
+    "tradeon",
+    "pulse",
+    "api",
+    "typescript",
+    "tradeonpulseapi"
+  ],
   "dependencies": {
     "axios": "^1.7.7"
   },
   "devDependencies": {
     "@types/node": "^22.9.0",
     "typescript": "^5.6.3"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   }
 }

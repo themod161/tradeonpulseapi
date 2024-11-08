@@ -1,6 +1,6 @@
 import { ETradeOnPulseSupportedGames } from "./enums";
 import { BooleanValue, INumberFilter, ITradeOnPulseCommissionSettings, ITradeOnPulseDepositRequestResponse, ITradeOnPulseDepositsListResponse, ITradeOnPulseMarketCurrency, ITradeOnPulseMarketResponse, ITradeOnPulsePaymentStatusResponse, ITradeOnPulseSteamCurrency, ITradeOnPulseSubscriptions, ITradeOnPulseUserData, ITradeOnPulseUserSubscriptionStatus, ITradeOnTableResponseItem, ITradeOnPulseSupportedMarkets, ITradeOnPulseOptions, PaginationKey, PaginationKeySortDirection, SalesCountFilters, SalesCountPeriod, SubscriptionsPeriod } from "../types";
-export declare class TradeOnPulseApi {
+declare class TradeOnPulseApi {
     private token;
     private axios;
     constructor(token: string);
@@ -37,7 +37,7 @@ export declare class TradeOnPulseApi {
             "skipCount": number;
             "takeCount": number;
         };
-    }): Promise<ITradeOnTableResponseItem<Game>>;
+    }): Promise<ITradeOnTableResponseItem<Game>[]>;
     getAvailableMarkets(game: ETradeOnPulseSupportedGames): Promise<ITradeOnPulseMarketResponse[]>;
     getMarketCurrencies(): Promise<ITradeOnPulseMarketCurrency[]>;
     getSteamCurrencies(): Promise<{
@@ -55,4 +55,5 @@ export declare class TradeOnPulseApi {
     updateCommissionSettings(settings: ITradeOnPulseCommissionSettings[]): Promise<ITradeOnPulseCommissionSettings>;
     setCurrency(currency: string): Promise<any>;
 }
+export { TradeOnPulseApi };
 export default TradeOnPulseApi;

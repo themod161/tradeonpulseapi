@@ -3,7 +3,7 @@ import { ETradeOnPulseSupportedGames } from "./enums";
 import { BooleanValue, INumberFilter, ITradeOnPulseCommissionSettings, ITradeOnPulseDepositRequestResponse, ITradeOnPulseDepositsListResponse, ITradeOnPulseMarketCurrency, ITradeOnPulseMarketResponse, ITradeOnPulseMarketResponseWithHistory, ITradeOnPulseMarketResponseWithoutHistory, ITradeOnPulsePaymentStatusResponse, ITradeOnPulseSteamCurrency, ITradeOnPulseSubscriptions, ITradeOnPulseUserData, ITradeOnPulseUserSubscriptionStatus, ITradeOnTableResponseItem, ITradeOnPulseSupportedMarkets, ITradeOnPulseOptions, PaginationKey, PaginationKeySortDirection, SalesCountFilters, SalesCountPeriod, SubscriptionsPeriod } from "../types";
 import { defaultConfig } from "./markets";
 
-export class TradeOnPulseApi {
+class TradeOnPulseApi {
     private token: string;
     private axios: AxiosInstance;
 
@@ -78,7 +78,7 @@ export class TradeOnPulseApi {
             ...options
         }
         
-        const response = await this.axios.post<ITradeOnTableResponseItem<Game>>(
+        const response = await this.axios.post<ITradeOnTableResponseItem<Game>[]>(
             `table/${game}/${new String(firstMarketOptions.market)}/${new String(secondMarketOptions.market)}/all`,
             config
         );
@@ -168,4 +168,6 @@ export class TradeOnPulseApi {
         return response.data;
     }
 }
-export default TradeOnPulseApi;
+
+export { TradeOnPulseApi }; 
+export default TradeOnPulseApi; // Default export

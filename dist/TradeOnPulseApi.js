@@ -142,4 +142,4 @@ class TradeOnPulseApi {
     }
 }
 exports.TradeOnPulseApi = TradeOnPulseApi;
-exports.default = TradeOnPulseApi;
+exports.default = TradeOnPulseApi; // Default export
