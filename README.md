@@ -127,25 +127,54 @@ const response = await TradeOnPulseApiInstance.getTable(ETradeOnPulseSupportedGa
 | options.paginationRequest.orderParameters | Object (optional) | Order parameters for pagination. |
 | options.paginationRequest.orderParameters.key | PaginationKey | The key for the order parameter. |
 | options.paginationRequest.orderParameters.direction | PaginationDirection | The direction for the order parameter. |
-| options.paginationRequest.limit | number (optional) | The limit for the number of items per page. |
-| options.paginationRequest.offset | number (optional) | The offset for the pagination. |
+| options.paginationRequest.takeCount | number (optional) | The limit for the number of items per page. |
+| options.paginationRequest.skipCount | number (optional) | The offset for the pagination. |
 
 #### getTable Response Data Table
 | Property Name | Type | Description |
 | --- | --- | --- |
-| id | number | The unique identifier of the market data item. |
-| marketHashName | string | The name of the market item. |
-| firstMarketPrice | number | The price of the item in the first market. |
-| secondMarketPrice | number | The price of the item in the second market. |
+| itemName.marketHashName | string | The market hash name of the item. |
+| (dota) itemName.itemType | string | The type of the item in Dota 2. |
+| (dota) itemName.itemQuality | string | The quality of the item in Dota 2. |
+| (dota) itemName.itemRarity | string | The rarity of the item in Dota 2. |
+| (rust) itemName.itemType | string | The type of the item in Rust. |
+| (rust) itemName.itemCategory | string | The category of the item in Rust. |
+| (cs2)  itemName.isStatTrak  | boolean | Indicates whether the item is StatTrak in Counter-Strike 2. |
+| (cs2)  itemName.isSouvenir | boolean | Indicates whether the item is a souvenir in Counter-Strike 2. |
+| (cs2)  itemName.itemTypeName | string | The type name of the item in Counter-Strike 2. |
+| (cs2)  itemName.skinName | string | The skin name of the item in Counter-Strike 2. |
+| imageUrl | string | The URL of the item's image. |
+| firstMarket.id | number | The unique identifier of the first market. |
+| firstMarket.price | number | The price of the item in the first market. |
+| firstMarket.realPrice | number | The real price of the item in the first market. |
+| firstMarket.overriddenPrice | number | The overridden price of the item in the first market. |
+| firstMarket.realPriceCurrency | string | The currency of the real price in the first market. |
+| firstMarket.bestOfferCount | number | The count of the best offers in the first market. |
+| firstMarket.totalOffersCount | number | The total count of offers in the first market. |
+| firstMarket.historyUpdateTime | number | The update time of the history in the first market. |
+| firstMarket.offersUpdateTime | number | The update time of the offers in the first market. |
+| firstMarket.overstockInfo | any | The overstock information of the item in the first market. |
+| firstMarket.holdInfoResponse | any | The hold information response of the item in the first market. |
+| secondMarket.id | number | The unique identifier of the second market. |
+| secondMarket.price | number | The price of the item in the second market. |
+| secondMarket.realPrice | number | The real price of the item in the second market. |
+| secondMarket.overriddenPrice | number | The overridden price of the item in the second market. |
+| secondMarket.realPriceCurrency | string | The currency of the real price in the second market. |
+| secondMarket.bestOfferCount | number | The count of the best offers in the second market. |
+| secondMarket.totalOffersCount | number | The total count of offers in the second market. |
+| secondMarket.historyUpdateTime | number | The update time of the history in the second market. |
+| secondMarket.offersUpdateTime | number | The update time of the offers in the second market. |
+| secondMarket.overstockInfo | any | The overstock information of the item in the second market. |
+| secondMarket.holdInfoResponse | any | The hold information response of the item in the second market. |
 | profit | number | The profit or loss made on the trade. |
 | profitPercent | number | The profit or loss percentage made on the trade. |
-| firstMarketCount | number | The count of the item in the first market. |
-| secondMarketCount | number | The count of the item in the second market. |
-| hold | number | The hold time of the item. |
-| isOverstock | boolean | Indicates whether the item is overstocked. |
-| templateId | number | The template ID of the item. |
-| createdAt | string | The date and time when the item was created. |
-| updatedAt | string | The date and time when the item was last updated. |
+| isFavorite | boolean | Indicates whether the item is a favorite. |
+| itemPopularity | Array[] | The popularity information of the item across different markets. |
+| itemPopularity[].market | string | The name of the market. |
+| itemPopularity[].salesCount | number | The number of sales for the item in the market. |
+| itemPopularity[].marketItemUrl | string | The URL of the item in the market. |
+
+
 
 ### getAvailableMarkets
 ```typescript
@@ -177,7 +206,10 @@ const currencies = await TradeOnPulseApiInstance.getMarketCurrencies();
 | Property Name | Type | Description |
 | --- | --- | --- |
 | id | number | The unique identifier of the currency. |
-| name | string | The name of the currency. |
+| currency | string | The currency. |
+| shortName | string | The short name of the currency. |
+| longName | string | The name of the currency. |
+| asciiSymbol | string | The asciiSymbol of the currency. |
 | symbol | string | The symbol of the currency. |
 
 *returns Array*

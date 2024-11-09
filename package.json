@@ -1,6 +1,6 @@
 {
   "name": "tradeonpulseapi",
-  "version": "1.0.9",
+  "version": "1.1.1",
   "scripts": {
     "build": "tsc",
     "prepare": "npm run build"
